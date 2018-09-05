@@ -96,7 +96,7 @@ class Splash(PythonPackage):
     depends_on('py-theano+gpu', when='+mltrain', type=('build', 'run'))
     depends_on('py-keras',                       type=('build', 'run'))
     depends_on('py-h5py+mpi',                    type=('build', 'run'))
-    depends_on('py-configparser', when='+mltrain', type=('build', 'run'))
+    #depends_on('py-configparser', when='+mltrain', type=('build', 'run'))
 
     # flux
     depends_on('lua@5.1.5',           when='+flux', type=('build', 'run'))
