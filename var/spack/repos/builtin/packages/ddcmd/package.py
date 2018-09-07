@@ -22,23 +22,9 @@
 # License along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 ##############################################################################
-#
-# This is a template package file for Spack.  We've put "FIXME"
-# next to all the things you'll want to change. Once you've handled
-# them, you can save this file and test your package like this:
-#
-#     spack install ddcmd
-#
-# You can edit this file again by typing:
-#
-#     spack edit ddcmd
-#
-# See the Spack documentation for more information on packaging.
-# If you submit this package back to Spack as a pull request,
-# please first remove this boilerplate and all FIXME comments.
-#
-from spack import *
 
+from spack import *
+from os import chdir, listdir, symlink
 
 class Ddcmd(MakefilePackage):
     """DDCMD."""
@@ -49,12 +35,15 @@ class Ddcmd(MakefilePackage):
     version('develop', branch='develop', submodules=True)
 
     build_directory = 'src'
-    '''
-    # FIXME: Add dependencies if required.
-    # depends_on('foo')
-
     def install(self, spec, prefix):
-        # FIXME: Unknown build system
-        make()
-        make('install')
-   '''
+
+        # go back to the build directory
+        chdir('src')
+        mkdir(prefix.bin)
+        make('install', 'INSTALL_DIR={}'.format(prefix.bin))
+
+        # this will create the executable named as ddcMD-[arch]
+        chdir(prefix.bin)
+        files = listdir('.')
+        if len(files) == 1:
+            symlink(files[0], 'ddcMD')
