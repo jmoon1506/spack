@@ -24,7 +24,7 @@
 ##############################################################################
 
 from spack import *
-from os import chdir, listdir, symlink
+from os import chdir, listdir, rename#, symlink
 
 class Ddcmd(MakefilePackage):
     """DDCMD."""
@@ -33,6 +33,9 @@ class Ddcmd(MakefilePackage):
     git      = "ssh://git@cz-bitbucket.llnl.gov:7999/ddcmdy/ddcmd.git"
 
     version('develop', branch='develop', submodules=True)
+    version('hycop', branch='hycop-tomaso', submodules=True)
+
+    depends_on('mpi')
 
     build_directory = 'src'
     def install(self, spec, prefix):
@@ -42,8 +45,12 @@ class Ddcmd(MakefilePackage):
         mkdir(prefix.bin)
         make('install', 'INSTALL_DIR={}'.format(prefix.bin))
 
-        # this will create the executable named as ddcMD-[arch]
+        # the above will create the executable named as ddcMD-[arch]
+        # for simplicity, we will move to 'ddcmd' or 'ddcmd-hycop'
+        target_name = 'ddcMD-hycop' if spec.satisfies('@hycop') else 'ddcMD'
+
         chdir(prefix.bin)
         files = listdir('.')
         if len(files) == 1:
-            symlink(files[0], 'ddcMD')
+            rename(files[0], target_name)
+            #symlink(files[0], target_name)
