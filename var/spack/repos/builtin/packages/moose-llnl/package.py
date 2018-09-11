@@ -40,12 +40,15 @@ class MooseLlnl(MakefilePackage):
 
     def build(self, spec, prefix):
 
+        bdir = getcwd()
         print 'doing custom build'
         print '\t prefix =', prefix
         #print '\t spec   =', spec
-        print '\t cwd =', getcwd()
+        print '\t cwd =', bdir
         print '\t ls =', listdir('.')
 
+        chdir(bdir)
+        return
         system('JOBS=20 ./scripts/update_and_rebuild_libmesh.sh')
 
         subdirs = ['moose-hycop-req-res', 'framework', 'modules/phase_field']
@@ -73,7 +76,7 @@ class MooseLlnl(MakefilePackage):
 
         install_libs = [#'libmesh/installed/lib/lib*.la',
                         'libmesh/installed/lib/lib*.so*',
-                        'modules/tensor_mechanics/lib*.so*',
+                        'modules/tensor_mechanics/lib/lib*.so*',
                         'modules/phase_field/lib/lib*.so*',
                         #'framework/libmoose*.la',
                         'framework/libmoose*.so*',
