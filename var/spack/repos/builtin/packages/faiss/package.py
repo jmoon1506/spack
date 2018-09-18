@@ -52,13 +52,13 @@ class Faiss(AutotoolsPackage):
 
     depends_on('blas')
     depends_on('py-pip',   when='+python', type='build')
-    depends_on('py-numpy', when='+python',  type=('build', 'run'))
+    depends_on('py-numpy', when='+python', type=('build', 'run'))
 
     def build(self, spec, prefix):
 
-        #TODO: filtering is needed only for non-x86 architecture!
-        makefile = FileFilter('makefile.inc')
-        makefile.filter('CPUFLAGS     = -msse4 -mpopcnt',  '#CPUFLAGS     = -msse4 -mpopcnt')
+        if 'x86' not in spec.architecture.target:
+            makefile = FileFilter('makefile.inc')
+            makefile.filter('CPUFLAGS     = -msse4 -mpopcnt',  '#CPUFLAGS     = -msse4 -mpopcnt')
 
         make()
 
