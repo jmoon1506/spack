@@ -59,6 +59,7 @@ class FluxCore(AutotoolsPackage):
     depends_on("py-cffi", type=('build', 'run'))
     depends_on("jansson")
     depends_on("yaml-cpp")
+    depends_on('sqlite')
 
     # versions up to 0.8.0 uses pylint to check Flux's python binding
     # later versions provide a configure flag and disable the check by default
