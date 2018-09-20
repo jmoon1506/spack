@@ -24,7 +24,7 @@
 ##############################################################################
 
 from spack import *
-from os import chdir, listdir, rename#, symlink
+from os import chdir, listdir, rename
 
 class Ddcmd(MakefilePackage):
     """DDCMD."""
@@ -36,8 +36,8 @@ class Ddcmd(MakefilePackage):
     version('hycop', branch='hycop-tomaso', submodules=True)
 
     depends_on('mpi')
-
     build_directory = 'src'
+    
     def install(self, spec, prefix):
 
         # go back to the build directory
@@ -53,4 +53,3 @@ class Ddcmd(MakefilePackage):
         files = listdir('.')
         if len(files) == 1:
             rename(files[0], target_name)
-            #symlink(files[0], target_name)

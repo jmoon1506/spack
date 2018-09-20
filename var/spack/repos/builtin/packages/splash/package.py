@@ -74,7 +74,7 @@ class Splash(PythonPackage):
     extends('python@2.7:')
 
     # build dependencies
-    depends_on('cmake',         type='build')
+    depends_on('cmake@3.12.1',  type='build')
     depends_on('swig@3.0.12',   type='build')
     depends_on('py-setuptools', type='build')
 
@@ -92,6 +92,7 @@ class Splash(PythonPackage):
     depends_on('databroker +python', when='+dbr', type='run')
 
     # machine learning dependencies
+    depends_on('faiss +python',                  type=('build', 'run'))
     depends_on('py-theano',     when='~mltrain', type=('build', 'run'))
     depends_on('py-theano+gpu', when='+mltrain', type=('build', 'run'))
     depends_on('py-keras',                       type=('build', 'run'))

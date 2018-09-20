@@ -48,7 +48,6 @@ class MooseLlnl(MakefilePackage):
         print '\t ls =', listdir('.')
 
         chdir(bdir)
-        return
         system('JOBS=20 ./scripts/update_and_rebuild_libmesh.sh')
 
         subdirs = ['moose-hycop-req-res', 'framework', 'modules/phase_field']
