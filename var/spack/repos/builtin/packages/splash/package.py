@@ -91,6 +91,9 @@ class Splash(PythonPackage):
     # databroker
     depends_on('databroker +python', when='+dbr', type='run')
 
+    # flux
+    depends_on('flux-sched@0.6.0 +cuda', when='+flux', type='run')
+
     # machine learning dependencies
     depends_on('faiss +python',                  type=('build', 'run'))
     depends_on('py-theano',     when='~mltrain', type=('build', 'run'))
@@ -99,6 +102,3 @@ class Splash(PythonPackage):
     depends_on('py-h5py+mpi',                    type=('build', 'run'))
     #depends_on('py-configparser', when='+mltrain', type=('build', 'run'))
 
-    # flux
-    depends_on('lua@5.1.5',           when='+flux', type=('build', 'run'))
-    depends_on('lua-luaposix@33.4.0', when='+flux', type=('build', 'run'))

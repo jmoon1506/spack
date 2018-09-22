@@ -32,6 +32,7 @@ class Ddcmd(MakefilePackage):
     homepage = "https://lc.llnl.gov/bitbucket/projects/DDCMDY"
     git      = "ssh://git@cz-bitbucket.llnl.gov:7999/ddcmdy/ddcmd.git"
 
+    #version('temp', commit='4c9c4cfc740', submodules=True)
     version('develop', branch='develop', submodules=True)
     version('hycop', branch='hycop-tomaso', submodules=True)
 
@@ -47,7 +48,7 @@ class Ddcmd(MakefilePackage):
 
         # the above will create the executable named as ddcMD-[arch]
         # for simplicity, we will move to 'ddcmd' or 'ddcmd-hycop'
-        target_name = 'ddcMD-hycop' if spec.satisfies('@hycop') else 'ddcMD'
+        target_name = 'ddcmd-hycop' if spec.satisfies('@hycop') else 'ddcmd'
 
         chdir(prefix.bin)
         files = listdir('.')
