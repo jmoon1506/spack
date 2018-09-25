@@ -81,6 +81,7 @@ class Splash(PythonPackage):
     # generic
     depends_on('py-numpy', type=('build', 'run'))
     depends_on('py-scipy', type=('build', 'run'))
+    depends_on('py-matplotlib')
 
     # mdanalysis
     depends_on('py-mdanalysis@0.16.2',  type=('build', 'run'))
