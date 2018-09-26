@@ -47,7 +47,6 @@ class MooseLlnl(MakefilePackage):
         print '\t cwd =', bdir
         print '\t ls =', listdir('.')
 
-        chdir(bdir)
         system('JOBS=20 ./scripts/update_and_rebuild_libmesh.sh')
 
         subdirs = ['moose-hycop-req-res', 'framework', 'modules/phase_field']
@@ -55,7 +54,8 @@ class MooseLlnl(MakefilePackage):
             chdir(subdir)
             make()
             chdir('..')
-
+        
+        chdir(bdir)
 
     def install(self, spec, prefix):
 
@@ -64,9 +64,6 @@ class MooseLlnl(MakefilePackage):
         #print '\t spec   =', spec
         print '\t cwd =', getcwd()
         print '\t ls =', listdir('.')
-
-        mkdir(prefix.bin)
-        mkdir(prefix.lib)
 
         # libraries and binaries to be installed
         install_bins = ['modules/phase_field/phase_field-opt',
@@ -82,8 +79,16 @@ class MooseLlnl(MakefilePackage):
                         'framework/contrib/pcre/libpcre-opt*.so*'
                        ]
 
+        mkdir(prefix.lib)
         for lib in install_libs:
+            print 'installing', lib
             system('cp -P {} {}'.format(lib, prefix.lib))
 
+        mkdir(prefix.bin)
         for bin in install_bins:
+            print 'installing', bin
             system('cp {} {}'.format(bin, prefix.bin))
+
+       #print 'bin:', listdir(prefix.bin)
+       #print 'lib:', listdir(prefix.lib)
+
