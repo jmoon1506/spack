@@ -22,26 +22,10 @@
 # License along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 ##############################################################################
-#
-# This is a template package file for Spack.  We've put "FIXME"
-# next to all the things you'll want to change. Once you've handled
-# them, you can save this file and test your package like this:
-#
-#     spack install ddcmdconverter
-#
-# You can edit this file again by typing:
-#
-#     spack edit ddcmdconverter
-#
-# See the Spack documentation for more information on packaging.
-# If you submit this package back to Spack as a pull request,
-# please first remove this boilerplate and all FIXME comments.
-#
 from spack import *
 
-
 class Ddcmdconverter(PythonPackage):
-    """FIXME: Put a proper description of your package here."""
+    """DdcMD converter."""
 
     # FIXME: Add a proper url for your package's homepage here.
     homepage = "https://lc.llnl.gov/bitbucket/projects/XZR/repos/ddcmdconvertor/browse"
