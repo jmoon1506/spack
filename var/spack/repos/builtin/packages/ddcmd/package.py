@@ -43,8 +43,7 @@ class Ddcmd(MakefilePackage):
     depends_on('mpi')
 
     # older versions depend upon v1.0.0
-    #depends_on('ddcmdconverter', when='@gbell')
-    depends_on('ddcmdconverter', when='@jun8')
+    depends_on('ddcmdconverter@1.0.0', when='@jun8')
 
     build_directory = 'src'
     
