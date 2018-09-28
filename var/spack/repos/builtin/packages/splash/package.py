@@ -74,7 +74,7 @@ class Splash(PythonPackage):
     extends('python@2.7:')
 
     # build dependencies
-    depends_on('cmake@3.12.1',  type='build')
+    depends_on('cmake@3.12.2',  type='build')
     depends_on('swig@3.0.12',   type='build')
     #depends_on('py-setuptools', type='build')
 
@@ -93,7 +93,7 @@ class Splash(PythonPackage):
     depends_on('databroker +python', when='+dbr', type='run')
 
     # flux
-    depends_on('flux-sched@0.6.0 +cuda', when='+flux', type='run')
+    depends_on('flux-sched@0.6.1 +cuda', when='+flux', type='run')
 
     # machine learning dependencies
     depends_on('faiss +python',                  type=('build', 'run'))

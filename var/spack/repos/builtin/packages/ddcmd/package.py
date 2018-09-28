@@ -37,12 +37,12 @@ class Ddcmd(MakefilePackage):
     #version('temp', commit='4c9c4cfc740', submodules=True)
     version('develop', branch='develop', submodules=True)
     version('hycop', branch='hycop-tomaso', submodules=True)
-    version('gbell', tag='Gorden-Bell', submodules=True)
+    #version('gbell', tag='Gorden-Bell', submodules=True)
     version('jun8', tag='jun-8', submodules=True)
 
     depends_on('mpi')
 
-    # older versions depend upon v1.0.0
+    depends_on('ddcmdconverter@master', when='@develop')
     depends_on('ddcmdconverter@1.0.0', when='@jun8')
 
     build_directory = 'src'
