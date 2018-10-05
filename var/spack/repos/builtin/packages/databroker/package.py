@@ -22,23 +22,9 @@
 # License along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 ##############################################################################
-#
-# This is a template package file for Spack.  We've put "FIXME"
-# next to all the things you'll want to change. Once you've handled
-# them, you can save this file and test your package like this:
-#
-#     spack install databroker
-#
-# You can edit this file again by typing:
-#
-#     spack edit databroker
-#
-# See the Spack documentation for more information on packaging.
-# If you submit this package back to Spack as a pull request,
-# please first remove this boilerplate and all FIXME comments.
-#
-from spack import *
 
+from spack import *
+from os import system, chdir 
 
 class Databroker(CMakePackage):
     """IBM's databroker."""
@@ -51,7 +37,8 @@ class Databroker(CMakePackage):
     variant('python', default=False, description='Build Python bindings')
 
     depends_on('cmake',          type='build')
-    depends_on('redis@4.0.11',   type=('build', 'run'))
+    depends_on('redis@4.0.8:',   type=('build', 'run'))
+    depends_on('ruby@2.2.9',     type=('build', 'run'))
     depends_on('libevent@2.1.8', type=('build', 'run'))
 
     extends('python@2.7:',        when='+python')
@@ -68,3 +55,20 @@ class Databroker(CMakePackage):
         if '+python' in self.spec:
             args.append('-DPYDBR=true')
         return args
+
+    def install(self, spec, prefix):
+
+        '''
+        print ' which ruby: ', 
+        system('which ruby')
+        print 'which gem : ',
+        system('which gem')
+        system('`which gem` env')
+        system('`which gem` install -V redis')
+        
+        exit()
+        '''
+        system('pip install rdbtools python-lzf')
+
+        chdir(self.build_directory)
+        make('install')

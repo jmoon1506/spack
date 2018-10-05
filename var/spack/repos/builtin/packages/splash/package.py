@@ -75,7 +75,8 @@ class Splash(PythonPackage):
 
     # build dependencies
     depends_on('cmake@3.12.2',  type='build')
-    depends_on('swig@3.0.12',   type='build')
+    depends_on('py-pip',        type=('build', 'run'))
+    depends_on('swig@3.0.12',   type=('build', 'run'))
     #depends_on('py-setuptools', type='build')
 
     # generic

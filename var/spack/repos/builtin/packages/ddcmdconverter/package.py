@@ -27,13 +27,11 @@ from spack import *
 class Ddcmdconverter(PythonPackage):
     """DdcMD converter."""
 
-    # FIXME: Add a proper url for your package's homepage here.
     homepage = "https://lc.llnl.gov/bitbucket/projects/XZR/repos/ddcmdconvertor/browse"
     url      = ""
 
-    # FIXME: Add proper versions and checksums here.
     version('master', git='ssh://git@cz-bitbucket.llnl.gov:7999/xzr/ddcmdconvertor.git')
-    version('1.0.0', git='ssh://git@cz-bitbucket.llnl.gov:7999/xzr/ddcmdconvertor.git', tag='v1.0.0')
+    version('1.0.1',  git='ssh://git@cz-bitbucket.llnl.gov:7999/xzr/ddcmdconvertor.git', tag='v1.0.1')
+    version('1.0.0',  git='ssh://git@cz-bitbucket.llnl.gov:7999/xzr/ddcmdconvertor.git', tag='v1.0.0')
 
-    # FIXME: Add dependencies if required.
     depends_on('py-setuptools', type='build')
