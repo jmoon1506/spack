@@ -71,6 +71,8 @@ class FluxCore(AutotoolsPackage):
     depends_on("automake", type='build', when='@master')
     depends_on("libtool", type='build', when='@master')
 
+    patch("flux-rpc-errmsg.patch", when='@0.10.0')
+
     def setup(self):
         pass
 
