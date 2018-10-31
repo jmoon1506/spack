@@ -33,7 +33,7 @@ class FluxSched(AutotoolsPackage):
     url      = "https://github.com/flux-framework/flux-sched/releases/download/v0.5.0/flux-sched-0.5.0.tar.gz"
     git      = "https://github.com/flux-framework/flux-sched.git"
 
-    version('0.6.1', branch='master')                   # Harsh's edit for munge fix
+    #version('0.6.1', branch='master')                   # Harsh's edit for munge fix
     version('master', branch='master')
     version('0.5.0', 'a9835c9c478aa41123a4e12672500052228aaf1ea770f74cb0901dbf4a049bd7d329e99d8d3484e39cfed1f911705030b2775dcfede39bc8bea59c6afe2549b1')
     version('0.4.0', '82732641ac4594ffe9b94ca442a99e92bf5f91bc14745af92203a887a40610dd44edda3ae07f9b6c8d63799b2968d87c8da28f1488edef1310d0d12be9bd6319')
@@ -47,7 +47,7 @@ class FluxSched(AutotoolsPackage):
     depends_on("flux-core@0.8.0", when='@0.4.0')
     depends_on("flux-core@0.9.0", when='@0.5.0')
     depends_on("flux-core@0.10.0", when='@0.6.0')
-    depends_on("flux-core@0.10.1", when='@0.6.1')       # Harsh's edit for munge fix
+    #depends_on("flux-core@0.10.1", when='@0.6.1')       # Harsh's edit for munge fix
     depends_on("flux-core@master", when='@master')
 
     # Need autotools when building on master:

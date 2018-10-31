@@ -94,7 +94,7 @@ class Splash(PythonPackage):
     depends_on('databroker +python', when='+dbr', type='run')
 
     # flux
-    depends_on('flux-sched@0.6.1 +cuda', when='+flux', type='run')
+    depends_on('flux-sched@0.6.0 +cuda', when='+flux', type='run')
 
     # machine learning dependencies
     depends_on('faiss +python',                  type=('build', 'run'))
