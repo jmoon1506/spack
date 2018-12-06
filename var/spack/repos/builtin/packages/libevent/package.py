@@ -18,8 +18,12 @@ class Libevent(AutotoolsPackage):
     url      = "https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz"
     list_url = "http://libevent.org/old-releases.html"
 
+    # Harsh's changes
+    #version('2.1.8',  'f3eeaed018542963b7d2416ef1135ecc')
+    # from github
     version('2.1.8',  '965cc5a8bb46ce4199a47e9b2c9e1cae3b137e8356ffdad6d94d3b9069b71dc2')
     version('2.0.22', '71c2c49f0adadacfdbe6332a372c38cf9c8b7895bb73dabeaa53cdcc1d4e1fa3')
+    
     version('2.0.21', 'b2405cc9ebf264aa47ff615d9de527a2')
     version('2.0.20', '94270cdee32c0cd0aa9f4ee6ede27e8e')
     version('2.0.19', '91111579769f46055b0a438f5cc59572')

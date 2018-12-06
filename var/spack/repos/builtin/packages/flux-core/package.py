@@ -15,6 +15,7 @@ class FluxCore(AutotoolsPackage):
     git      = "https://github.com/flux-framework/flux-core.git"
 
     version('master',  branch='master')
+    #version('0.10.1',  commit='25e85cafeb6d39c1bc5041683596a0ade6490aca')       # Harsh's edit for munge fix
     version('0.10.0', 'a84a1ed53a69c805c253bc940540cbf667a059b2008fd2a6a9bb890a985ead08e88dcbba68c01567f887357306fbfded41b93cc33edfa7809955ba5ba5870284')
     version('0.9.0',  '70eaec1005aa49e8d8cf397570789cebedfb5d917efe963390d456ee4c473eefb15b0c81ea83f60a1fd057fe7be356bbafdebcae64b499844d194c48f6aefa05')
     version('0.8.0',  'b0fec05acedc530bcdf75b2477ac22f39d2adddc7af8ff76496208a5e1e8185b1b4a18677871d95c3cfbf34b05f391953651200917fe029931f4e2beb79d70df')
@@ -45,6 +46,10 @@ class FluxCore(AutotoolsPackage):
     depends_on("py-six", type=('build', 'run'), when="@0.11.0:,master")
     depends_on("jansson")
     depends_on("yaml-cpp")
+
+    # Harsh's addition
+    depends_on('sqlite')
+    
     depends_on("lz4", when="@0.11.0:,master")
 
     # versions up to 0.8.0 uses pylint to check Flux's python binding
@@ -57,6 +62,8 @@ class FluxCore(AutotoolsPackage):
     depends_on("autoconf", type='build', when='@master')
     depends_on("automake", type='build', when='@master')
     depends_on("libtool", type='build', when='@master')
+
+    patch("flux-rpc-errmsg.patch", when='@0.10.0')
 
     def setup(self):
         pass

@@ -14,8 +14,9 @@ class PyMdanalysis(PythonPackage):
     topology formats.)"""
 
     homepage = "http://www.mdanalysis.org"
-    url      = "https://pypi.io/packages/source/M/MDAnalysis/MDAnalysis-0.15.0.tar.gz"
+    url      = "https://pypi.io/packages/source/M/MDAnalysis/MDAnalysis-0.16.2.tar.gz"
 
+    version('0.16.2', '20ddd2838a5bbfc4b1016794f1382938')
     version('0.15.0', '19e5a8e6c2bfe85f6209d1d7a36e4f20')
 
     variant('analysis', default=True, 

@@ -17,6 +17,7 @@ class Ruby(AutotoolsPackage):
 
     version('2.5.3', '9828d03852c37c20fa333a0264f2490f07338576734d910ee3fd538c9520846c')
     version('2.2.0', 'cd03b28fd0b555970f5c4fd481700852')
+    version('2.2.9', '5c4d72ffe06605898d6c806f491bb7ba')
 
     variant('openssl', default=True, description="Enable OpenSSL support")
     variant('readline', default=False, description="Enable Readline support")
@@ -104,4 +105,5 @@ class Ruby(AutotoolsPackage):
                                                        up_to(2)),
                                         'rubygems',
                                         'ssl_certs')
+        mkdirp(rubygems_certs_path)
         install(rubygems_updated_cert_path, rubygems_certs_path)
