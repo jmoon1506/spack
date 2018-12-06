@@ -17,8 +17,8 @@ class FluxSched(AutotoolsPackage):
     # Harsh created a dated version
     # and added this version alongside 'master' to determine correct deps
         # Stephen Herbein added some compilation fixes
-    version('2018-12-05', branch='compilation-fixes', git="https://github.com/stevwonder/flux-sched.git")
-
+    #version('2018-12-05', branch='compilation-fixes', git="https://github.com/stevwonder/flux-sched.git")
+    version('2018-12-05', commit='70bf1098579d585db1b36e02deb18f7abdb8949f')
     version('master', branch='master')
     version('0.6.0', '8aad185949038c7fb6b277e6a8282947917084ebbec5c5bf0ee3a81a0dcdbe41ba18b1df837c669ae7b48ca5f1e492a5172bffa6b9feb4dda1c6a7a85abed4e8')
     version('0.5.0', 'a9835c9c478aa41123a4e12672500052228aaf1ea770f74cb0901dbf4a049bd7d329e99d8d3484e39cfed1f911705030b2775dcfede39bc8bea59c6afe2549b1')
