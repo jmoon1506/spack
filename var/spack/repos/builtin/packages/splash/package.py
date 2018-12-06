@@ -47,6 +47,8 @@ class Splash(PythonPackage):
     git      = "git@code.ornl.gov:v33/pilot2-splash-app.git"
 
     # use this for the actual code!
+    # after Nov f2f
+    version('0.2.0', commit='372e85318181530731f191b5a48b747f60bfadd2')
     version('develop', branch='develop')
     #version('1.0.1', tag='v1.0.1')
     #version('2014-10-08', commit='9d38cd4e2c94c3cea97d0e2924814acc')
@@ -74,7 +76,7 @@ class Splash(PythonPackage):
     extends('python@2.7:')
 
     # build dependencies
-    depends_on('cmake@3.12.2',  type='build')
+    depends_on('cmake@3.13:',  type='build')
     depends_on('py-pip',        type=('build', 'run'))
     depends_on('swig@3.0.12',   type=('build', 'run'))
     #depends_on('py-setuptools', type='build')
@@ -82,19 +84,19 @@ class Splash(PythonPackage):
     # generic
     depends_on('py-numpy', type=('build', 'run'))
     depends_on('py-scipy', type=('build', 'run'))
-    depends_on('py-matplotlib')
+    depends_on('py-matplotlib@2.2.3 +ipython')
 
     # mdanalysis
     depends_on('py-mdanalysis@0.16.2',  type=('build', 'run'))
 
     # maestrowf
-    depends_on('py-maestrowf',          type=('build', 'run'))
+    depends_on('py-maestrowf@1.1.3',    type=('build', 'run'))
 
     # databroker
-    depends_on('databroker +python', when='+dbr', type='run')
+    depends_on('databroker@0.5.1 +python', when='+dbr', type='run')
 
     # flux
-    depends_on('flux-sched@0.6.0 +cuda', when='+flux', type='run')
+    depends_on('flux-sched@2018-12-05 +cuda', when='+flux', type='run')
 
     # machine learning dependencies
     depends_on('faiss +python',                  type=('build', 'run'))
@@ -103,4 +105,7 @@ class Splash(PythonPackage):
     depends_on('py-keras',                       type=('build', 'run'))
     depends_on('py-h5py+mpi',                    type=('build', 'run'))
     #depends_on('py-configparser', when='+mltrain', type=('build', 'run'))
+
+    depends_on('py-scikit-learn',   type=('build', 'run'))
+    depends_on('talass@2018-10-29', type=('build','run'))
 

@@ -38,8 +38,8 @@ class Databroker(CMakePackage):
     variant('python', default=False, description='Build Python bindings')
 
     depends_on('cmake',          type='build')
-    depends_on('redis@5.0.2:',   type=('build', 'run'))
-    #depends_on('redis@4.0.8:',   type=('build', 'run'))
+    depends_on('redis@5.0.2:',   when='@0.5.1', type=('build', 'run'))
+    depends_on('redis@4.0.8:',   type=('build', 'run'))
     depends_on('ruby@2.2.9:',     type=('build', 'run'))
     depends_on('libevent@2.1.8', type=('build', 'run'))
 
