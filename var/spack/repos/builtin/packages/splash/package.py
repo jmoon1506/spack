@@ -90,7 +90,7 @@ class Splash(PythonPackage):
     depends_on('py-mdanalysis@0.16.2',  type=('build', 'run'))
 
     # maestrowf
-    depends_on('py-maestrowf@1.1.3',    type=('build', 'run'))
+    depends_on('py-maestrowf@1.1.4dev1.1',    type=('build', 'run'))
 
     # databroker
     depends_on('databroker@0.5.1 +python', when='+dbr', type='run')
