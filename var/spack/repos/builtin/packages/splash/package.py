@@ -85,6 +85,7 @@ class Splash(PythonPackage):
     depends_on('py-numpy', type=('build', 'run'))
     depends_on('py-scipy', type=('build', 'run'))
     depends_on('py-matplotlib@2.2.3 +ipython')
+    depends_on('py-backports-functools-lru-cache')
 
     # mdanalysis
     depends_on('py-mdanalysis@0.16.2',  type=('build', 'run'))
