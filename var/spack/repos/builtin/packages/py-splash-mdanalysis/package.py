@@ -12,10 +12,12 @@ class PySplashMdanalysis(PythonPackage):
     Gromacs. (See the lists of supported trajectory formats and
     topology formats.)"""
 
-    homepage = "http://www.mdanalysis.org"
-    url      = "https://pypi.io/packages/source/M/MDAnalysis/MDAnalysis-0.16.2.tar.gz"
+    homepage = "https://lc.llnl.gov/bitbucket/projects/XZR/repos/mdanalysis_0_16_2"
+    url      = "https://lc.llnl.gov/bitbucket/projects/XZR/repos/mdanalysis_0_16_2"
 
-    version('2018-12-26', git='https://github.com/XiaohuaZhangLLNL/mdanalysis.git', commit='6cb4cd308b7108636688d24dd4dc29ff44e4f499')
+    version('2018-12-26', git='ssh://git@cz-bitbucket.llnl.gov:7999/xzr/mdanalysis_0_16_2.git', commit='b723a1c5da6')
+
+    #version('2018-12-26', git='https://github.com/XiaohuaZhangLLNL/mdanalysis.git', commit='6cb4cd308b7108636688d24dd4dc29ff44e4f499')
     #version('0.16.2', '20ddd2838a5bbfc4b1016794f1382938')
     #version('0.15.0', '19e5a8e6c2bfe85f6209d1d7a36e4f20')
 
