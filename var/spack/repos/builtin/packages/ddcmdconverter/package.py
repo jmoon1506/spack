@@ -31,6 +31,7 @@ class Ddcmdconverter(PythonPackage):
     url      = ""
 
     version('master', git='ssh://git@cz-bitbucket.llnl.gov:7999/xzr/ddcmdconvertor.git')
+    version('1.0.1.dev0',  git='ssh://git@cz-bitbucket.llnl.gov:7999/xzr/ddcmdconvertor.git', commit='2ad0498dd5e')
     version('1.0.1',  git='ssh://git@cz-bitbucket.llnl.gov:7999/xzr/ddcmdconvertor.git', tag='v1.0.1')
     version('1.0.0',  git='ssh://git@cz-bitbucket.llnl.gov:7999/xzr/ddcmdconvertor.git', tag='v1.0.0')
 
