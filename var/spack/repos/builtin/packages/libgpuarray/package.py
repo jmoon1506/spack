@@ -14,6 +14,7 @@ class Libgpuarray(CMakePackage):
     homepage = "http://deeplearning.net/software/libgpuarray/"
     url      = "https://github.com/Theano/libgpuarray/archive/v0.6.1.tar.gz"
 
+    version('0.7.6', 'd8e0ec6a2ad3bf2eba915dc7efff467e')
     version('0.7.5', '2534011464555c3e99d14231db965c20')
     version('0.7.4', '19f57cd381175162048c8154f5251546')
     version('0.7.3', 'cb44aeb8482330974abdb36b0a477e5d')

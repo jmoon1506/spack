@@ -13,8 +13,9 @@ class PyGriddataformats(PythonPackage):
     data again."""
 
     homepage = "http://www.mdanalysis.org/GridDataFormats"
-    url      = "https://pypi.io/packages/source/G/GridDataFormats/GridDataFormats-0.3.3.tar.gz"
+    url      = "https://pypi.io/packages/source/G/GridDataFormats/GridDataFormats-0.4.0.tar.gz"
 
+    version('0.4.0', sha256='f81d6b75aa7ebd9e8b64e14558c2d2583a0589829382beb4ef69860110261512')
     version('0.3.3', '5c83d3bdd421eebcee10111942c5a21f')
 
     depends_on('python@2.7:')

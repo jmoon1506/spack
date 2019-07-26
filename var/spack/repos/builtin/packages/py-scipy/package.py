@@ -30,6 +30,7 @@ class PyScipy(PythonPackage):
         'scipy.special._precompute'
     ]
 
+    version('1.3.0', sha256='6c1896c3e2738e940f8be132eb7caef48d85f1dc')
     version('1.2.1', sha256='e085d1babcb419bbe58e2e805ac61924dac4ca45a07c9fa081144739e500aa3c')
     version('1.1.0', 'aa6bcc85276b6f25e17bcfc4dede8718')
     version('1.0.0', '53fa34bd3733a9a4216842b6000f7316')
