@@ -11,16 +11,17 @@ class PyMaestrowf(PythonPackage):
        simulation studies."""
 
     homepage = "https://github.com/LLNL/maestrowf/"
-    git      = "https://github.com/LLNL/maestrowf.git"
+    url      = "https://github.com/LLNL/maestrowf/archive/v1.1.2.tar.gz"
 
-    version('1.1.4dev1.1', tag='1.1.4dev1.1')
-    version('flux-dev', branch='bugfix/flux_broker')
-    version('develop', branch='develop')
-    version('1.1.4', tag='v1.1.4') 
-    version('1.1.2', tag='v1.1.2')
-    version('flux-sched', branch='bugfix/flux_broker')
+    version('1.1.4dev1.1', git='https://github.com/LLNL/maestrowf.git', tag='1.1.4dev1.1')
 
-    extends('python@3.7.3')
+    version('flux-dev', git='https://github.com/LLNL/maestrowf.git', branch='bugfix/flux_broker')
+    version('develop', git='https://github.com/LLNL/maestrowf.git', branch='develop')
+    version('1.1.3', '0299e4ae3ec8b8c0296df0efaa8b517f')
+    version('1.1.2', 'a9e05d82910cd2dd077321fb9b0c8dcd')
+    version('1.1.1', 'd38bbf634de4f29fd01d1864ba2f70e0')
+    version('1.1.0', '3c20bf36fbb85d14c3bfdb865944a409')
+    version('1.0.1', '6838fc8bdc7ca0c1adbb6a0333f005b4')
 
     depends_on('py-setuptools', type='build')
     depends_on('py-pyyaml',     type=('build', 'run'))
