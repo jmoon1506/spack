@@ -41,7 +41,7 @@ class FluxSched(AutotoolsPackage):
     depends_on("flux-core@0.9.0", when='@0.5.0')
     depends_on("flux-core@0.10.0", when='@0.6.0')
     depends_on("flux-core@0.11.0:0.11.99", when='@0.7.0:0.7.99')
-    depends_on("flux-core@0.15.0", when='@0.8.0')
+    depends_on("flux-core@0.16.0", when='@0.8.0')
     depends_on("flux-core@master", when='@master')
 
     # Need autotools when building on master:
