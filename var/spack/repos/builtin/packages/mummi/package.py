@@ -71,7 +71,7 @@ class Mummi(PythonPackage):
     depends_on('gromacs@2019.3 ~mpi~cuda~rdtscp simd=IBM_VSX')		#TODO: these settings are for powerpc
 
     # databroker
-    depends_on('databroker@0.6.1 +python build_type=Debug')	    	#TODO: change to release when dbr is fixed
+    depends_on('databroker@0.7.1 +python build_type=Debug')	    	#TODO: change to release when dbr is fixed
 
     # flux
     depends_on('flux-sched@0.8.0 +cuda')
