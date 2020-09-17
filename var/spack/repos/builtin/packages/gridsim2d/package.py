@@ -11,6 +11,7 @@ class Gridsim2d(MakefilePackage):
     git        = "ssh://git@cz-bitbucket.llnl.gov:7999/~tomaso/gridcorr2d.git"
     homepage   = "https://lc.llnl.gov/bitbucket/users/tomaso/repos/gridcorr2d/browse"
     version('master', branch='master')
+    version('campaign-3', branch='Campaign-3')
 
     def install(self, spec, prefix):
         mkdir(prefix.bin)

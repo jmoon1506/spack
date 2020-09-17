@@ -62,7 +62,7 @@ class Mummi(PythonPackage):
     depends_on('py-matplotlib@3.0.2')
 
     # macro
-    #depends_on('gridsim2d')
+    depends_on('gridsim2d@campaign-3')
 
     # micro
     depends_on('ddcmdconverter@1.0.3')
