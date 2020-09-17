@@ -26,6 +26,7 @@ class Gromacs(CMakePackage):
 
     version('develop', branch='master')
     version('2020', sha256='477e56142b3dcd9cb61b8f67b24a55760b04d1655e8684f979a75a5eec40ba01')
+    version('2019.6', sha256='bebe396dc0db11a9d4cc205abc13b50d88225617642508168a2195324f06a358')
     version('2019.5', sha256='438061a4a2d45bbb5cf5c3aadd6c6df32d2d77ce8c715f1c8ffe56156994083a')
     version('2019.4', sha256='ba4366eedfc8a1dbf6bddcef190be8cd75de53691133f305a7f9c296e5ca1867')
     version('2019.3', sha256='4211a598bf3b7aca2b14ad991448947da9032566f13239b1a05a2d4824357573')
@@ -88,6 +89,18 @@ class Gromacs(CMakePackage):
 
     patch('gmxDetectCpu-cmake-3.14.patch', when='@2018:2019.3^cmake@3.14.0:')
     patch('gmxDetectSimd-cmake-3.14.patch', when='@:2017.99^cmake@3.14.0:')
+
+
+    # ----------------------------------------------------------------------------------
+    # addition for a patch for mummi
+    version('2019.6.mummifix',
+              url='http://ftp.gromacs.org/gromacs/gromacs-2019.6.tar.gz',
+              sha256='bebe396dc0db11a9d4cc205abc13b50d88225617642508168a2195324f06a358')
+
+    patch('http://www.sci.utah.edu/~hbhatia/pilot2/gromacs-2019.6-limitEMstep-20200526.patch', 
+            sha256='e82b910d71fdeea82cedcbb03b2d67dcf92405beb95a40c5ef628d211be4137d', 
+            when='@2019.6.mummifix')
+    # ----------------------------------------------------------------------------------
 
     def patch(self):
         if '+plumed' in self.spec:

@@ -20,6 +20,7 @@ class PyMaestrowf(PythonPackage):
     version('develop', branch='develop')
     version('master',  branch='master')
     version('flux-dev', branch='bugfix/flux_broker')
+    version('flux-c3', branch='merge/flux2')
 
     # Pre-release candidates
     version('1.1.5dev',    sha256='eb3d6f31c233e2cde3b84e15c657002b83ff43d4d6b218b33d023a4f527b9e08')
@@ -41,3 +42,8 @@ class PyMaestrowf(PythonPackage):
     depends_on('py-tabulate',   type=('build', 'run'), when='@flux-dev:')
     depends_on('py-filelock',   type=('build', 'run'), when='@1.1.0:')
     depends_on('py-filelock',   type=('build', 'run'), when='@flux-dev:')
+    depends_on('py-filelock',   type=('build', 'run'), when='@flux-c3:')
+    depends_on('py-coloredlogs',   type=('build', 'run'), when='@flux-c3:')
+    depends_on('py-dill',          type=('build', 'run'), when='@flux-c3:')
+    depends_on('py-jsonschema@3.2.0',    type=('build', 'run'), when='@flux-c3:')
+    depends_on('py-tabulate',    type=('build', 'run'), when='@flux-c3:')
